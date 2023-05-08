@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- <title>Animated Text from Photo</title> -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+  <style>
+    /* Set the container position to relative */
+    body {
+      background-image: url("jungletelephone.jpg");
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+
+    .container {
+      position: relative;
+    }
+
+    #quitBtn {
+      position: fixed;
+      height: 80px;
+      width: 80px;
+      bottom: 10;
+    }
+
+    p {
+      font-family: "Courier New", Courier, monospace;
+    }
+
+    /* Set the photo position to absolute and center it within the container */
+    .photo {
+      position: absolute;
+      top: 35%;
+      left: 30%;
+      transform: translate(-50%, -50%);
+    }
+
+    /* Set the text position to absolute and hide it initially */
+    .text {
+      position: fixed;
+      top: 30%;
+      left: 60%;
+      transform: translate(-50%, -50%);
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    /* Set the button position to absolute and center it below the text */
+    .button {
+      margin: 40px;
+      position: absolute;
+      top: calc(50% + 50px);
+      left: 50%;
+      transform: translate(-50%);
+    }
+
+    /* When the container is hovered over, show the text */
+    .container:hover .text {
+      opacity: 1;
+    }
+
+    #quitBtn {
+      position: fixed;
+      height: 80px;
+      width: 80px;
+      bottom: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <img src="call.svg" alt="Photo" class="photo" id="quitBtn" width="100px" height="100px" />
+    <!-- <img src="quit.jpg" alt="Photo" class="photo" id="quitBtn" /> -->
+    <div class="text">
+      <p>
+        <b>Hello, this is Officer from emegency department. I want to let you
+          know that we have dispatched emergency services to your location and
+          they are on their way to assist you. Please remain calm and try to
+          reach the location east of for the island. You are in good hands,
+          and we will do everything we can to make sure you receive the
+          necessary help. Do not worry, help is on the way. Thank you for your
+          cooperation and patience.</b>
+      </p>
+      <a href="map_puzzle.html" class="button"><button onclick="storeData()">OK</button></a>
+    </div>
+  </div>
+  <a href="main.html"><img src="quit.png" id="quitBtn" /></a>
+  <script>
+    function storeData() {
+      var points = 10;
+      // the user earns 10 points on this page
+      var data = JSON.parse(sessionStorage.getItem("page1Data"));
+      data.points += points;
+      data.total_points += 10;
+      sessionStorage.setItem("page1Data", JSON.stringify(data));
+      window.location.href = "map_puzzle.html";
+    }
+  </script>
+</body>
+
+</html>

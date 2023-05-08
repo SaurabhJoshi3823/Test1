@@ -1,0 +1,214 @@
+<html>
+
+<head>
+  <style>
+    body {
+      background-image: url(firstaidjungle.jpg);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      overflow: hidden;
+    }
+
+    .container {
+      position: relative;
+      padding-top: 100px;
+      min-height: 100vh;
+      text-align: center;
+    }
+
+    .timer {
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding: 10px;
+      background-color: #333;
+      color: #fff;
+      font-weight: bold;
+      font-size: 36px;
+      border-radius: 5px 0 0 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    }
+
+    .timer:before {
+      content: "";
+      position: fixed;
+      top: -10px;
+      right: 0;
+      border-style: solid;
+      border-width: 0 10px 10px 0;
+      border-color: transparent #333 transparent transparent;
+    }
+
+    #fdiv {
+      width: 300px;
+      border: 3px red dashed;
+      position: fixed;
+      left: 30%;
+      bottom: 10%;
+    }
+
+    #fclue {
+      position: fixed;
+      height: 80px;
+      width: 80px;
+      right: 10;
+      bottom: 10;
+    }
+
+    #quitBtn {
+      position: fixed;
+      height: 80px;
+      width: 80px;
+      bottom: 10;
+    }
+
+    .dialog {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 20px;
+      background-color: rgb(229, 255, 0);
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      z-index: 9999;
+    }
+
+    /* Style for the overlay */
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 9998;
+    }
+
+    #gotIt {
+      color: red;
+      background-color: rgb(255, 178, 36);
+      border: none;
+      margin-top: 10px;
+      padding: 5px;
+      border-radius: 5px;
+    }
+
+    .popup {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 20px;
+      background-color: white;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      z-index: 9999;
+      text-align: center;
+    }
+
+    .popup h2 {
+      margin-top: 0;
+    }
+
+    .popup p {
+      margin-bottom: 0;
+    }
+
+    .rectangle {
+      position: absolute;
+      bottom: 60;
+      right: 100;
+      width: 200px;
+      height: 200px;
+      background-color: #f0f0f000;
+      border: 2px solid #cccccc00;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body onclick="handleClick(event)">
+  <div class="container">
+    <div class="timer" id="timer">25</div>
+  </div>
+
+  <div class="popup" id="popup" style="display: none">
+    <h2>Time's up!</h2>
+    <p>Sorry, your time has run out.</p>
+  </div>
+
+  <div id="fdiv">
+    <center>
+      <h4>
+        I am a container of healing powers,<br />
+        Hiding where the wild jungle flowers.<br />
+        In a spot where the twisted tree stands,<br />
+        I wait for your healing hands.<br />
+        What am I?
+      </h4>
+    </center>
+  </div>
+
+  <div class="rectangle" onclick="storeData()"></div>
+
+  <img src="clue.png" id="fclue" onclick="openDialog()" />
+  <div class="overlay" id="overlay" style="display: none"></div>
+
+  <div class="dialog" id="dialog" style="display: none">
+    <p><b>Look for the twisted tree with vines crawling around it.</b></p>
+    <center>
+      <button id="gotIt" onclick="closeDialog()">GOT IT!</button>
+    </center>
+  </div>
+  <script>
+    var seconds = 25;
+    var points = 10;
+
+    function storeData() {
+      // the user earns 10 points on this page
+      var data = JSON.parse(sessionStorage.getItem("page1Data"));
+      data.points += points;
+      data.total_points += 10;
+      sessionStorage.setItem("page1Data", JSON.stringify(data));
+      window.location.href = "2.html";
+    }
+
+    // Update the timer display every second
+    var timer = setInterval(function () {
+      seconds--;
+      document.getElementById("timer").innerHTML = seconds;
+
+      // When the timer reaches 0, stop the countdown and show the popup
+      if (seconds == 0) {
+        clearInterval(timer);
+        document.getElementById("popup").style.display = "block";
+        setTimeout(function () {
+          window.location.href = "main.html";
+        }, 5000);
+      }
+    }, 1000);
+    function openDialog() {
+      // Show the overlay and dialog box
+      document.getElementById("overlay").style.display = "block";
+      points-=5;
+      document.getElementById("dialog").style.display = "block";
+    }
+
+    function closeDialog() {
+      // Hide the overlay and dialog box
+      document.getElementById("overlay").style.display = "none";
+      document.getElementById("dialog").style.display = "none";
+    }
+
+    function handleClick(event) {
+      if (event.target.classList.contains("rectangle")) {
+        location.href = "2.html";
+      }
+    }
+  </script>
+  <a href="main.html"><img src="quit.png" id="quitBtn" /></a>
+</body>
+
+</html>

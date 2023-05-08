@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<style>
+	body {
+		margin: 0;
+		padding: 0;
+		font-family: Arial, sans-serif;
+	}
+
+	p {
+		font-size: 20px;
+		border: solid rgb(255, 85, 85);
+		border-radius: 2px;
+		color: rgb(0, 0, 0);
+		background-color: rgb(241, 107, 107);
+		position: fixed;
+		bottom: 20px;
+		left: 40%;
+	}
+
+	#image-container {
+		position: fixed;
+		width: 100%;
+		height: 0;
+		padding-bottom: 60%; /* aspect ratio of image */
+		background-image: url("crashedplane.jpg");
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: bottom;
+	}
+
+	#quitBtn {
+		position: fixed;
+		height: 80px;
+		width: 80px;
+		bottom: 0;
+	}
+
+	.dialog {
+		display: none;
+		position: fixed;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: 400px;
+		height: 400px;
+		background-color: white;
+		border: 1px solid black;
+		padding: 20px;
+		z-index: 1;
+		overflow: hidden;
+	}
+
+	.dialog img {
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
+		cursor: pointer;
+	}
+
+	#dialog1 {
+		left: 35%;
+		top: 35%;
+		height: 100px;
+		width: 100px;
+		border-radius: 10px;
+	}
+
+	#dialog2 {
+		left: 65%;
+		top: 35%;
+		height: 100px;
+		width: 100px;
+		border-radius: 10px;
+	}
+
+	#dialog3 {
+		left: 50%;
+		top: 60%;
+		height: 100px;
+		width: 100px;
+		border-radius: 10px;
+	}
+
+	.overlay {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0, 0, 0, 0.5); /* adjust the opacity here */
+		z-index: 0;
+	}
+
+	.overlay.show {
+		display: block;
+	}
+</style>
+
+</head>
+
+<body>
+	<div id="image-container">
+		<div class="dialog" id="dialog1">
+			<img src="battery.png" onclick="window.location.href='battery1.html'"><!-- battery-->
+		</div>
+		<div class="dialog" id="dialog2">
+			<img src="glasswater.png" onclick="storeData2()"><!-- water-->
+		</div>
+		<div class="dialog" id="dialog3">
+			<img src="telephone.png" onclick="storeData()"><!-- telephone-->
+		</div>
+		<p id="hidId">Click on the aeroplane to proceed</p>
+	</div>
+	
+	<script>
+		var points = 10;
+		var imageContainer = document.getElementById("image-container");
+		var dialog1 = document.getElementById("dialog1");
+		var dialog2 = document.getElementById("dialog2");
+		var dialog3 = document.getElementById("dialog3");
+
+		imageContainer.addEventListener("click", function () {
+			dialog1.style.display = "block";
+			dialog2.style.display = "block";
+			dialog3.style.display = "block";
+		});
+
+		dialog1.addEventListener("click", function () {
+			window.location.href = "battery1.html";
+		});
+		dialog2.addEventListener("click", function () {
+			window.location.href = "map_puzzle2.html";
+		});
+		dialog3.addEventListener("click", function () {
+			window.location.href = "telephone1.html";
+		});
+
+		var text = document.getElementById("hidId");
+		imageContainer.addEventListener("click", function () {
+			text.style.display = "none";
+			dialog1.style.display = "block";
+			dialog2.style.display = "block";
+			dialog3.style.display = "block";
+		});
+
+
+
+		function storeData() {
+			var points = 10;
+			// the user earns 10 points on this page
+			var data = JSON.parse(sessionStorage.getItem("page1Data"));
+			data.points += points;
+			data.total_points += 10;
+			sessionStorage.setItem("page1Data", JSON.stringify(data));
+			window.location.href = "telephone1.html";
+		}
+		function storeData2() {
+			// the user earns 10 points on this page
+			var data = JSON.parse(sessionStorage.getItem("page1Data"));
+			data.points += points;
+			data.total_points += 10;
+			sessionStorage.setItem("page1Data", JSON.stringify(data));
+			window.location.href = "map_puzzle2.html";
+		}
+
+	</script>
+	<a href="main.html"><img src="quit.png" id="quitBtn"></a>
+	
+
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- <title>Red Animation</title> -->
+  <meta http-equiv="refresh" content="5; url=main.html">
+  <style>
+    body {
+        background-color: #000;
+        font-family: Arial, sans-serif;
+        text-align: center;
+        overflow: hidden;
+      }
+
+      h1 {
+        font-size: 10em;
+        margin-top: 100px;
+        color: #ff0000;
+        animation: shake 0.5s ease-in-out 0s 3 alternate;
+      }
+
+      p {
+        font-size: 5em;
+        margin-top: 50px;
+        color: #fff;
+        animation: fade-in 1s ease-in-out 0s 1 normal;
+      }
+
+      button {
+        background-color: #4CAF50;
+        border: none;
+        color: white;
+        padding: 2em 4em;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 5em;
+        margin-top: 50px;
+        cursor: pointer;
+        border-radius: 8px;
+        transition: background-color 0.3s ease;
+        animation: pulse 1s ease-in-out 0s infinite alternate;
+      }
+
+      button:hover {
+        background-color: #3e8e41;
+      }
+
+      @keyframes shake {
+        0% {
+          transform: translateX(0);
+        }
+        25% {
+          transform: translateX(-100px);
+        }
+        50% {
+          transform: translateX(100px);
+        }
+        75% {
+          transform: translateX(-100px);
+        }
+        100% {
+          transform: translateX(0);
+        }
+      }
+
+      @keyframes fade-in {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.5);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      @keyframes slide-in {
+        0% {
+          transform: translateX(-100%);
+        }
+        100% {
+          transform: translateX(0);
+        }
+      }
+
+      @keyframes rotate {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      @keyframes bounce {
+        0% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-50px);
+        }
+        100% {
+          transform: translateY(0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Game Over</h1>
+    <p>Sorry, you lost the game.</p>
+  </body>
+</html>

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- <title>Congratulations!</title> -->
+    <style>
+        body {
+            background-color: #87c9fe;
+            font-family: 'Open Sans', sans-serif;
+            text-align: center;
+        }
+
+        .container {
+            overflow: hidden;
+        }
+
+        h1 {
+            font-size: 4rem;
+            margin-top: 5rem;
+            color: #0941fa;
+            text-shadow: 2px 2px #333;
+            opacity: 0;
+            animation: fadeIn 2s ease-in-out forwards;
+        }
+        #heli{
+            height: 300px;
+            width: 300px;
+        }
+        #congoboat{
+            height: 300px;
+            width: 300px;
+        }
+        p {
+            font-size: 2rem;
+            color: #5a0954;
+            opacity: 0;
+            animation: fadeIn 2s ease-in-out 1s forwards;
+        }
+        #playagainbtn{
+            position: fixed;
+            opacity: 1;
+            z-index: 999;
+            margin-top: 2rem;
+            padding: 1rem 2rem;
+            background-color: #5dfa09;
+            color: #4930eb;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            left:30%;
+            top: 45%;
+        }
+        #leaderbtn{
+            position: fixed;
+            opacity: 1;
+            z-index: 999;
+            margin-top: 2rem;
+            padding: 1rem 2rem;
+            background-color: #5dfa09;
+            color: #4930eb;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            left:55%;
+            top: 45%;
+        }
+        .tree {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center bottom;
+            animation: tree 10s ease-in-out infinite;
+        }
+
+        .leaves {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 150%;
+            height: 150%;
+            background-image: url('clouds.webp');
+            background-size: cover;
+            background-position: center bottom;
+            animation: leaves 10s ease-in-out infinite;
+        }
+
+        @keyframes tree {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10%);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes leaves {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-5%);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        .bird {
+            position: fixed;
+            top: 10%;
+            right: 0;
+            width: 10%;
+            height: auto;
+            animation: bird 10s ease-in-out infinite;
+        }
+
+        @keyframes bird {
+            0% {
+                transform: translateX(0);
+            }
+            50% {
+                transform: translateX(-10%);
+            }
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        .butterfly {
+            position: fixed;
+            top: 20%;
+            left: 0;
+            width: 10%;
+            height: auto;
+            animation: butterfly 10s ease-in-out infinite;
+        }
+
+        @keyframes butterfly {
+            0% {
+                transform: translateX(0);
+            }
+            50% {
+                transform: translateX(10%);
+            }
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes rabbit {
+            0% {
+                transform: translateX(0);
+            }
+            50% {
+                transform: translateX(-20%);
+            }
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="tree"></div>
+        <div class="leaves"></div>
+        <img class="bird" src="helicopter.gif" id="heli">
+        <img class="butterfly" src="congoboat.png" id="congoboat">
+        <h1>Congratulations!</h1>
+        <p>You have completed the game.</p>
+        <button onclick="window.location.href='main.html'" id="playagainbtn">PLAY AGAIN</button>
+        <button onclick="window.location.href='dry.html'" id="leaderbtn">LEADERBOARD</button>
+    </div>
+</body>
+</html>

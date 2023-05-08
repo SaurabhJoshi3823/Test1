@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <!-- <title>My Image Page</title> -->
+    <meta http-equiv="refresh" content="3; url=water1.html">
+    <style>
+        
+    </style>
+  </head>
+  <body>
+    <center><img src="map-water.png" alt="My Image" width="800" height="600"></center>
+    <center> This show your way to escape</center>
+    <script>
+      function storeData() {
+        // var points = 10;
+        // the user earns 10 points on this page
+        var data = JSON.parse(sessionStorage.getItem("page1Data"));
+        // data.points += points;
+        // data.total_points += 10;
+        sessionStorage.setItem("page1Data", JSON.stringify(data));
+        // window.location.href = "telephone1.html";
+      }
+    </script>
+  </body>
+</html>

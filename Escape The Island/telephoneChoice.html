@@ -1,0 +1,110 @@
+<html>
+    <head>
+        <style>
+            body{
+                background-image: url(choicejungle.jpg);
+                overflow: hidden;
+            }
+            #image-container {
+                position: fixed;
+                width: 100%;
+                height: 0;
+                padding-bottom: 60%; /* aspect ratio of image */
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position: center;
+            }
+            p{
+                font-size: 20px;
+                border:solid rgb(255, 85, 85);
+                border-radius: 2px;
+                color: rgb(0, 0, 0);
+                background-color: rgb(241, 107, 107);
+                position: fixed;
+                bottom: 20px;
+                left: 50%;
+            }
+            #quitBtn{
+                position:fixed;
+                height:80px;
+                width:80px;
+                bottom:0;
+            }
+            .dialog {
+                display: block;
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 400px;
+                height: 400px;
+                background-color: white;
+                border: 1px solid black;
+                padding: 20px;
+                z-index: 1;
+                overflow: hidden;
+            }
+            .dialog img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+                cursor: pointer;
+            }
+            #dialog1 {
+                left: 35%;
+                top: 35%;
+                height: 100px;
+                width: 100px;
+                border-radius: 10px;
+            }
+            #dialog2 {
+                left: 65%;
+                top: 35%;
+                height: 100px;
+                width: 100px;
+                border-radius: 10px;
+            }
+            #dialog3 {
+                left: 50%;
+                top: 60%;
+                height: 100px;
+                width: 100px;
+                border-radius: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="image-container">
+            <div class="dialog" id="dialog1">
+                <img src="clue.png" onclick="window.location.href='battery1.html'"><!-- battery-->
+            </div>
+            <div class="dialog" id="dialog2">
+                <img src="glasswater.png" onclick="window.location.href='water1.html'"><!-- water-->
+            </div>
+            <div class="dialog" id="dialog3">
+                <img src="quit.jpg" onclick="window.location.href='2.html'"><!-- telephone-->
+            </div>
+            <p id="hidId">Make a choice</p>
+        </div>
+
+        <script>
+            var dialog1 = document.getElementById("dialog1");
+            var dialog2 = document.getElementById("dialog2");
+            var dialog3 = document.getElementById("dialog3");
+
+            dialog1.addEventListener("click", function() {
+                window.location.href = "battery1.html";
+            });
+            dialog2.addEventListener("click", function() {
+                window.location.href = "water1.html";
+            });
+            dialog3.addEventListener("click", function() {
+                window.location.href = "2.html";
+            });
+
+            var text = document.getElementById("hidId");
+            text.style.display = "none";
+        </script>
+        <a href="main.html"><img src="quit.jpg" id="quitBtn"></a>
+    </body>
+</html

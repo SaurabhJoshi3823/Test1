@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> </title>
+	<style>
+      * {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		body {
+			background-image: url("background.jpg");
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-attachment: fixed;
+			font-family: 'Roboto', sans-serif;
+		}
+
+		.container {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 100vh;
+			background-color: rgba(0, 0, 0, 0.4);
+		}
+
+		.story-view {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			background-color: #fff;
+			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+			padding: 50px;
+			position: relative;
+			z-index: 1;
+			border: 2px solid #ccc;
+		}
+
+		.photos-row {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			margin-bottom: 30px;
+		}
+
+		.photos-row img {
+			width: 200px;
+			height: 200px;
+			object-fit: cover;
+			border: 2px dashed #ccc;
+			margin: 20px;
+			transition: transform 0.3s ease-in-out;
+		}
+
+		.photos-row img:hover {
+			transform: scale(1.1);
+		}
+
+		p {
+			font-size: 1.2em;
+			line-height: 1.5em;
+			text-align: justify;
+			margin-bottom: 30px;
+			position: relative;
+			z-index: 1;
+		}
+
+		.text-box {
+			border: 2px solid #ccc;
+			padding: 20px;
+			margin-bottom: 30px;
+		}
+
+		.continue-btn {
+			background-color: hsl(226, 92%, 53%);
+			color: #fff;
+			border: none;
+			padding: 10px 20px;
+			border-radius: 5px;
+			cursor: pointer;
+			transition: all 0.3s ease-in-out;
+			position: relative;
+			z-index: 1;
+		}
+
+		.continue-btn:hover {
+			background-color: #0056b3;
+		}
+    </style>
+</head>
+<body>
+	<div class="container">
+		<div class="story-view">
+			<div class="photos-row">
+				<img src="photo1.jpg" alt="Image 1" />
+				<img src="photo2.jpeg" alt="Image 2" />
+				<img src="photo3.jpg" alt="Image 3" />
+			</div>
+			<p>
+                Once upon a time, there was a small plane flying over the ocean with a group of passengers on board. Suddenly, the plane experienced some engine trouble, and before anyone knew it, it spiraled out of control, crashing into the ocean below.
+
+Most of the passengers went missing upon impact, but Mark, a young man traveling alone to visit his family on a nearby island, was lucky enough to survive. As he emerged from the wreckage, he realized that he was stranded on a deserted island. The island was completely unknown to him, with no signs of civilization or any other beings around. He knew that he had to find a way to survive until he could be rescued.
+
+Mark started to explore the island, gathering useful items along the way. He came across some options that he needed to carefully consider before acting upon them.
+			</p>
+			<button class="continue-btn" onclick="goto()">Continue.....</button>
+		</div>
+	</div>
+	<script>
+		function goto(){
+			window.location.href="login.html";
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- <title>Treasure Hunt</title> -->
+  <style>
+    /* CSS styling */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    header {
+      background-color: #F2CB05;
+      padding: 20px;
+      text-align: center;
+      color: #fff;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 48px;
+    }
+
+    nav {
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+    }
+
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 20px;
+    }
+
+    main {
+      padding: 50px;
+      text-align: center;
+    }
+
+    footer {
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    header {
+      background-color: rgb(221, 154, 66);
+      padding: 20px;
+      text-align: center;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 48px;
+      text-shadow: 2px 2px #333;
+    }
+
+    button {
+      padding: 12px 24px;
+      border: none;
+      border-radius: 4px;
+      font-size: 16px;
+      background-color: #F2CB05;
+      color: #333;
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+    }
+
+    /* Button style when hovered */
+    button:hover {
+      background-color: #333;
+      color: #fff;
+    }
+
+    /* Glowing effect */
+    .glow {
+      animation: glowing 1500ms infinite;
+    }
+
+    @keyframes glowing {
+      0% {
+        box-shadow: 0 0 0 0 rgba(242, 203, 5, 0.7);
+      }
+
+      50% {
+        box-shadow: 0 0 20px 10px rgba(242, 203, 5, 0.7);
+      }
+
+      100% {
+        box-shadow: 0 0 0 0 rgba(242, 203, 5, 0.7);
+      }
+    }
+
+    body {
+      background-position: 680%;
+    }
+  </style>
+</head>
+
+<body background="img1.jpg">
+  <header>
+    <h1>Escape the island</h1>
+  </header>
+  <main>
+    <h2>Our Island Welcomes You!!</h2>
+    <p>Are you ready to embark on an adventure to escape the unknown island?</p>
+    <br>
+    <button class="glow" onclick=" storeData()">Start the Adventure</button>
+    <script>
+
+
+      function storeData() {
+        var startTime = new Date().getTime();
+        var points = 10; // the user earns 10 points on this page
+        var total_points = 10;
+        var data = { startTime: startTime, points: points, total_points: total_points };
+        sessionStorage.setItem("page1Data", JSON.stringify(data));
+        window.location.href = "1.html";
+      }
+
+
+
+      // Add the "glow" class to the button when clicked
+      const button = document.querySelector('button');
+      button.addEventListener('click', function () {
+        button.classList.add('glow');
+        setTimeout(function () {
+          button.classList.remove('glow');
+        }, 1500); // Remove the "glow" class after 1.5 seconds
+      });
+    </script>
+  </main>
+</body>
+
+</html>
+

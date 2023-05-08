@@ -1,0 +1,25 @@
+<html>
+
+<head>
+  </head>
+  <body>
+	<p>Total time taken: <span id="total-time"></span></p>
+    <p>Total points: <span id="total-points"></span></p>
+	<p>Total points earned: <span id="total-points-earned"></span></p>
+	<script>
+		var data = JSON.parse(sessionStorage.getItem("page1Data"));
+		var totalTime = (new Date().getTime() - data.startTime) / 1000; // in seconds
+		var totalPoints = data.points;
+        var totalpointsearned=data.total_points;
+		document.getElementById("total-time").innerHTML = formatTime(totalTime);
+		document.getElementById("total-points").innerHTML = totalPoints;
+        document.getElementById("total-points-earned").innerHTML=totalpointsearned;
+
+		function formatTime(seconds) {
+			var minutes = Math.floor(seconds / 60);
+			var remainingSeconds = seconds - (minutes * 60);
+			return minutes + ":" + (remainingSeconds < 10 ? "0" : "") + remainingSeconds;
+		}
+	</script>
+</body>
+</html>  

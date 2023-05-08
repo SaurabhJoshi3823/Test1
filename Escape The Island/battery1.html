@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <style>
+            p{
+                color: red;
+                font-size: 20px;
+                bottom:30%;
+                left:36%;
+                position: fixed;
+            }
+            #bonfire{
+                position: fixed;
+                height: 300px;
+                width: 300px;
+                bottom: 40%;
+                left:40%;
+            }
+            @keyframes flicker {
+			0% {
+				opacity: 1;
+			}
+			50% {
+				opacity: 0.5;
+			}
+			100% {
+				opacity: 1;
+			}
+		}
+
+		.flicker-animation {
+			animation-name: flicker;
+			animation-duration: 1s;
+			animation-timing-function: ease-in-out;
+			animation-iteration-count: infinite;
+		}
+        </style>
+    </head>
+    <body>
+        <div>
+            <a href="battery2.html"><img src="bonfire.gif" id="bonfire"></a>
+            <p class="flicker-animation"><b>Click above to ignite fire with the help of the battery</b></p>
+        </div>
+    </body>
+</html>

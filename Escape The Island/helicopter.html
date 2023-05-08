@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- <title>Full Screen Image</title> -->
+    <style>
+      body {
+        background-image: url("help.jpg");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+      #form-popup {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 9999;
+        width: 700px;
+        height: 700px;
+        background-image: url("Declaration.png");
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        text-align: center;
+        padding: 20px;
+        /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); */
+      }
+      form {
+        /* display: flex; */
+        justify-content: center;
+        bottom: 0;
+        /* flex-direction: column; */
+      }
+      input {
+        background: transparent;
+        outline: none;
+        border: none;
+        border-bottom: 2px solid brown;
+      }
+      #name {
+        margin-top: 360px;
+        margin-left: 150px;
+      }
+      #aeroplane_no {
+        margin-top: 5px;
+        margin-left: 220px;
+      }
+      #submit {
+        margin-top: 25px;
+        background-color: aqua;
+        padding: 10px;
+        border: none;
+        border-radius: 10px;
+      }
+      #none{
+        display: flex; justify-content: center; align-items: center; position: fixed; top: 0; bottom: 0; left: 0; right: 0;
+        margin-top: 20px;
+        
+      }
+      #open-form{
+        padding:20px;
+        border-radius: 5px;
+        outline: none;
+        border: none;
+        opacity: 0.7;
+        color: coral;
+      }
+      
+    </style>
+  </head>
+  <body>
+    <!-- Your content goes here -->
+    <div id="none"><button id="open-form">Some Paper Work</button></div>
+    <div id="form-popup">
+      <form action="congo.html">
+        <input type="text" id="name" name="name" /><br />
+        <input type="text" id="aeroplane_no" name="aeroplane_no" /><br />
+
+        <button type="submit" id="submit" onclick="storeData()">Submit</button>
+      </form>
+    </div>
+    
+    <script>
+      var openFormButton = document.getElementById("open-form");
+      var formPopup = document.getElementById("form-popup");
+      var submit = document.getElementById('submit');
+      openFormButton.addEventListener("click", function () {
+        formPopup.style.display = "block";
+      });
+      
+      var points = 10;
+      
+      submit.addEventListener('click', function () {
+        var name = document.getElementById('name').value;
+        var code = document.getElementById('aeroplane_no').value;
+        if (code == 34633) {
+        // the user earns 10 points on this page
+        var data = JSON.parse(sessionStorage.getItem("page1Data"));
+        data.points += points;
+        data.total_points += 10;
+        sessionStorage.setItem("page1Data", JSON.stringify(data));
+        window.location.href = "congo.html";
+      }
+      else {
+        alert("Wrong Code, No Worry Just a little penalty!!");
+        points=-15;
+      }
+        var data = JSON.parse(sessionStorage.getItem("page1Data"));
+        data.points += points;
+        data.total_points += 10;
+        sessionStorage.setItem("page1Data", JSON.stringify(data));
+        window.location.href = "congo.html";
+    });
+
+      // function storeData() {
+      //   // the user earns 10 points on this page
+      //   var data = JSON.parse(sessionStorage.getItem("page1Data"));
+      //   data.points += points;
+      //   data.total_points += 10;
+      //   sessionStorage.setItem("page1Data", JSON.stringify(data));
+      //   window.location.href = "congo.html";
+      // }
+    </script>
+  </body>
+</html>
